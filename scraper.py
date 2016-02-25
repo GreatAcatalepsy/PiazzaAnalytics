@@ -44,8 +44,8 @@ for url_ in url_list:
 	instructthanks.append(text.split("thanks")[1].split("updated")[0].strip())#get instruct thanks
 	discussion.append(text.split("questions and comments")[1].split("Start a new follow-up discussion")[0].strip())#get discussion
 
-for post in postData:
-    posts.append(BeautifulSoup(str(post)).get_text().encode("utf-8").strip())
+#for post in postData:
+#    posts.append(BeautifulSoup(str(post)).get_text().encode("utf-8").strip())
 
 csvfile = open('piazza225fa15.csv', 'wb')
 writer = csv.writer(csvfile)
