@@ -10,7 +10,7 @@ import urllib2
 #metaData = soup.find_all("cid="+n)
 #postData = soup.find_all("cid="+n)
 
-base_url = 'https://piazza.com/class/idm78ismocb1jh?'
+base_url = 'https://piazza.com/class/' #YOU HAVE TO INSERT THE CLASS ID HERE
 r = rq.get(base_url)
 
 soup = bsoup(r.text)
@@ -33,16 +33,16 @@ instructthanks = []
 discussion = []
 
 for url_ in url_list:
- 	text = BeautifulSoup(str(html).strip()).get_text().encode("utf-8").replace("\n", "") 
-	views.append(text.split("question")[1].split("views")[0].strip())#get views
-	question.append(text.split("views")[1].split("good question")[0].strip())#get question
-	goodquestion.append(text.split("good question")[1].split("Updated")[0].strip())#get good question
-	folder.append(text.split('\n')[1].split("good question")[0].strip())#get folder
-	studentanswer.append(text.split("collectively construct a single answer")[1].split("thanks!")[0].strip())#get student answer
-	studthanks.append(text.split("thanks")[1].split("updated")[0].strip())#get student thanks
-	instructoranswer.append(text.split("the instructors' answer,")[1].split("thanks")[0].strip())#get instructor answer
-	instructthanks.append(text.split("thanks")[1].split("updated")[0].strip())#get instruct thanks
-	discussion.append(text.split("questions and comments")[1].split("Start a new follow-up discussion")[0].strip())#get discussion
+    text = BeautifulSoup(str(html).strip()).get_text().encode("utf-8").replace("\n", "") 
+    views.append(text.split("question")[1].split("views")[0].strip())#get views
+    question.append(text.split("views")[1].split("good question")[0].strip())#get question
+    goodquestion.append(text.split("good question")[1].split("Updated")[0].strip())#get good question
+    folder.append(text.split('\n')[1].split("good question")[0].strip())#get folder
+    studentanswer.append(text.split("collectively construct a single answer")[1].split("thanks!")[0].strip())#get student answer
+    studthanks.append(text.split("thanks")[1].split("updated")[0].strip())#get student thanks
+    instructoranswer.append(text.split("the instructors' answer,")[1].split("thanks")[0].strip())#get instructor answer
+    instructthanks.append(text.split("thanks")[1].split("updated")[0].strip())#get instruct thanks
+    discussion.append(text.split("questions and comments")[1].split("Start a new follow-up discussion")[0].strip())#get discussion
 
 #for post in postData:
 #    posts.append(BeautifulSoup(str(post)).get_text().encode("utf-8").strip())
